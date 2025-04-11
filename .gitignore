@@ -1,0 +1,38 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg
+*.egg-info/
+*.log
+*.coverage
+*.tox/
+*.envrc
+
+# === Django ===
+*.sqlite3
+media/
+staticfiles/
+static/
+db.sqlite3
+
+# === VS Code ===
+.vscode/
+
+# === macOS ===
+.DS_Store
+
+# === Docker volumes ===
+pgdata/
+
+# === Environment files ===
+.env
+
+# === Migrations (если не хочешь коммитить пока не будет стабильной схемы)
+**/migrations/
+!**/migrations/__init__.py
+
+# === Pytest cache ===
+.cache/

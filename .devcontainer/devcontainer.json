@@ -1,0 +1,16 @@
+{
+    "name": "Codemark Bot",
+    "dockerComposeFile": [
+      "docker-compose.yml"
+    ],
+    "service": "backend",
+    "workspaceFolder": "/app",
+    "settings": {
+      "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    "extensions": [
+      "ms-python.python",
+      "ms-python.vscode-pylance"
+    ],
+    "postCreateCommand": "pip install -r requirements.txt"
+  }

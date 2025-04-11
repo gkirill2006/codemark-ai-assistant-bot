@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    container_name: ai_backend
+    env_file: .env
+    ports:
+      - "9002:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+
+  bot:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.bot
+    container_name: ai_bot
+    env_file: .env
+    volumes:
+      - ./bot:/app
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:15
+    container_name: ai_db
+    restart: always
+    environment:
+      POSTGRES_DB: botdb
+      POSTGRES_USER: botuser
+      POSTGRES_PASSWORD: botpass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "56432:5432"
+
+volumes:
+  pgdata:
